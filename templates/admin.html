@@ -1,0 +1,102 @@
+{% from "_formhelpers.html" import render_field %}
+{% extends "base.html" %}
+{% block title %}
+    ADMIN PANEL
+{% endblock %}
+
+{% block content %}
+
+    <div class="text-center">
+      <div class="row">
+        <div class="col"></div>
+        <div class="col-6">
+          <h4><p>Menyu qo'shish</p></h4>
+            <form method="post">
+              <dl>
+                <div class="mb-3">
+                  {{ render_field(form.name) }}
+
+                </div>                <div class="mb-3">
+                  {{ render_field(form.price) }}
+
+              </div>                <div class="mb-3">
+                  {{ render_field(form.image) }}
+
+              </div>              </dl>
+              <div class="mb-3">
+                <input type="submit" value="Buyurtma berish"  class="btn btn-primary">
+
+              </div>            </form>
+        </div>
+        <div class="col"></div>
+      </div>
+      <div class="row">
+        <div class="col"></div>
+        <div class="col-6">
+          <h4><p>Restoran qo'shish</p></h4>
+            <form method="post">
+              <dl>
+                <div class="mb-3">
+                  {{ render_field(form2.name) }}
+                </div>
+                <div class="mb-3">
+                  {{ render_field(form2.filial) }}
+                </div>
+                <div class="mb-3">
+                  {{ render_field(form2.izoh) }}
+                </div>
+                <div class="mb-3">
+                  {{ render_field(form2.menu) }}
+                </div>
+              </dl>
+              <div class="mb-3">
+                <input type="submit" value="Buyurtma berish"  class="btn btn-primary">
+              </div>
+            </form>
+        </div>
+        <div class="col"></div>
+      </div>
+      <div class="row">
+        <div class="col"></div>
+        <div class="col-6">
+          <h4><p>Ishchi qushish</p></h4>
+          <form method="post">
+            <dl>
+              <div class="mb-3">
+                {{ render_field(form3.name) }}
+              </div>
+              <div class="mb-3">
+                {{ render_field(form3.age) }}
+              </div>
+              <div class="mb-3">
+                {{ render_field(form3.lavozim) }}
+              </div>
+              <div class="mb-3">
+                {{ render_field(form3.gender) }}
+              </div>
+              <div class="mb-3">
+                {{ render_field(form3.worktime_from) }}
+              </div>
+              <div class="mb-3">
+                {{ render_field(form3.worktime_to) }}
+              </div>
+              <div class="mb-3">
+                {{ render_field(form3.is_ceoLevel) }}
+              </div>
+              <div class="mb-3">
+                {{ render_field(form3.workplace) }}
+              </div>
+            </dl>
+            <div class="mb-3">
+                <input type="submit" value="Buyurtma berish"  class="btn btn-primary">
+            </div>
+          </form>
+        </div>
+        <div class="col"></div>
+      </div>
+    </div>
+
+
+
+
+{% endblock %}

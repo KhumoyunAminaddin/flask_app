@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block title %}
+    Bu bosh saxifa
+{% endblock %}
+{% block content %}
+    <div class="text-center">
+      <div class="row">
+        <div class="col"></div>
+        <div class="col-6"><h1> Milliy restoranga hush kelibsiz {{ session["user"] }} </h1>
+        </div>
+        <div class="col"></div>
+      </div>
+      <div class="row">
+        <div class="col"></div>
+        <div class="col-6">
+        </div>
+        <div class="col"></div>
+      </div>
+      <div class="row">
+        <div class="col"></div>
+        <div class="col-6">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Nomi</th>
+                  <th scope="col">Narxi</th>
+                  <th scope="col">Rasmi</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for i in content %}
+                    <tr>
+                      <th scope="row">1</th>
+                      <td>{{ i["name"] }}</td>
+                      <td>{{ i["price"] }}</td>
+                      <td>{{ i["image"] }}</td>
+                    </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+        </div>
+        <div class="col"></div>
+      </div>
+    </div>
+</div>
+{% endblock %}

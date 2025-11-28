@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block title %}
+    Bu Details saxifasi
+{% endblock %}
+
+{% block content %}
+    <div class="text-center">
+      <div class="row">
+        <div class="col"></div>
+        <div class="col-6">
+            <p><h3> Menu </h3></p>
+            <form action="#" method="post">
+            {% for i in menu %}
+                    <label for="input1" class="form-label">{{ i["name"] }} {{ i["price"] }}</label>
+                    <div class="mb-3">
+                        <input type="number" class="form-control" id="input1" aria-describedby="emailHelp" name="{{ i['id'] }}">
+                    </div>
+            {% endfor %}
+                <input type="submit" value="Buyurtma berish"  class="btn btn-primary">
+            </form>
+        </div>
+        <div class="col"></div>
+      </div>
+      <div class="row">
+        <div class="col"></div>
+        <div class="col-6">
+            <p><h3>{{ data }}'ning Buyurtmalari:</h3></p>
+        </div>
+        <div class="col"></div>
+      </div>
+      <div class="row">
+        <div class="col"></div>
+        <div class="col-6">
+          <table class="table table-success table-striped-columns">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nomi</th>
+          <th scope="col">Son</th>
+          <th scope="col">Narxi</th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for i in content %}
+        <tr>
+          <th scope="row">1</th>
+          <td>{{ i["name"] }}</td>
+          <td>{{ i["quantity"] }}</td>
+          <td>{{ i["price"] }}</td>
+        </tr>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+        </div>
+        <div class="col"></div>
+      </div>
+    </div>
+{% endblock %}
