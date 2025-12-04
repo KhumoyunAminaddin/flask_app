@@ -1,9 +1,11 @@
-from flask import Flask, redirect, url_for, render_template, request, session, flash
+from flask import Flask, redirect, url_for, render_template, request, session, flash, jsonify
+from flask.views import MethodView
 from wtforms import (Form, StringField, IntegerField, FieldList, validators, SubmitField,
 					 FormField, SelectField, RadioField, BooleanField)
 from datetime import timedelta
 from custom_models import db, Menu, Restorant, Employee, Buyurtma, Customer, Ovqat
 from flask_migrate import Migrate
+from flask import views
 
 def create_app():
 	app = Flask(__name__)
@@ -20,6 +22,21 @@ def create_app():
 	return app
 
 app = create_app()
+
+class MenuView(views.MethodView):
+	def __init__(self, model):
+		self.model = model
+
+class GroupView(views.MethodView):
+	def __init__(self, model):
+		self.model = model
+
+	def get(self):
+		items = self.model.query.all()
+		return jsonify([x.to_json() for x in items])
+
+group = GroupView.as_view("Menu-group", Menu)
+app.add_url_rule('/menu', view_func=group)
 
 class MenuForm(Form):
 	name = StringField('name', validators=[validators.Length(min=1, max=25)])

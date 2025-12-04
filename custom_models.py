@@ -1,4 +1,6 @@
 from datetime import datetime
+
+from flask import jsonify
 from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
@@ -13,6 +15,14 @@ class Menu(db.Model):
 		self.name = name
 		self.price = price
 		self.image = image
+
+	def to_json(self):
+		return {
+			"id": self.id,
+			"name": self.name,
+			"price": self.price,
+			"image": self.image
+		}
 
 class Ovqat(db.Model):
 	id = db.Column("id", db.Integer, primary_key=True)
